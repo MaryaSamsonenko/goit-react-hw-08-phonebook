@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Formik } from "formik";
+import { Formik, Form, Field } from "formik";
 import { authOperations } from "../../redux/auth/authOperations";
 
 export const LoginPage = () => {
@@ -22,19 +22,19 @@ export const LoginPage = () => {
           }}
           onSubmit={handleSubmit}
         >
-          <form>
+          <Form>
             <label htmlFor="email">Email</label>
             <div>
-              <input type="email" name="email" />
+              <Field type="email" name="email" />
             </div>
 
             <label htmlFor="password">password</label>
             <div>
-              <input type="password" name="password" />
+              <Field type="password" name="password" />
             </div>
 
             <button type="submit">Submit</button>
-          </form>
+          </Form>
         </Formik>
       </container>
     </section>

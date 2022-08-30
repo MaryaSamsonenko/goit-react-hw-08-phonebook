@@ -2,7 +2,6 @@ import { ContactForm } from "../../components/ContactForm/ContactForm";
 import { Filter } from "../../components/Filter/Filter";
 import { ContactList } from "../../components/ContactList/ContactList";
 import { Container } from "../../components/Container/Container.styled";
-import { Toaster } from "react-hot-toast";
 
 export const Phonebook = () => {
   return (
@@ -14,7 +13,6 @@ export const Phonebook = () => {
         <Filter />
         <ContactList />
       </Container>
-      <Toaster />
     </>
   );
 };

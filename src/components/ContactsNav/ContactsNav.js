@@ -8,11 +8,11 @@ export const ContactsNav = () => {
   return (
     <nav>
       {isLoggedIn ? (
-        <NavLink to="/contacts" exact>
+        <NavLink to="/contacts">
           Phonebook
         </NavLink>
       ) : (
-        <NavLink to="/" exact>
+        <NavLink to="/">
           Home
         </NavLink>
       )}

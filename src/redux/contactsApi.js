@@ -4,20 +4,21 @@ import { BASE_URL } from "../constants/baseURL";
 
 export const contactsApi = createApi({
   reducerPath: "contacts",
+  keepUnusedDataFor: 5,
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+      if (token) {
+        headers.set("Authorization", `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
-  tagTypes: [{ type: "Contacts" }],
   endpoints: (builder) => ({
     getContacts: builder.query({
-      query: () => "contacts",
-      providesTags: (result) =>
-        result
-          ? [
-              ...result.map(({ id }) => ({ type: "Contact", id })),
-              { type: "Contact", id: "LIST" },
-            ]
-          : [{ type: "Contact", id: "LIST" }],
+      query: () => `contacts`,
+      providesTags: ["Contact"],
     }),
 
     addContact: builder.mutation({

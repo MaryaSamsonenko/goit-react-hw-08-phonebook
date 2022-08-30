@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
-import { Formik } from "formik";
+import { Formik, Form, Field } from "formik";
 import { authOperations } from "../../redux/auth/authOperations";
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
-  const handleSubmit = async ({ name, email, password }, { resetForm }) => {
+  const handleSubmit = ({ name, email, password }, { resetForm }) => {
     const registerObject = { name, email, password };
     dispatch(authOperations.register(registerObject));
     resetForm();
@@ -22,23 +22,23 @@ export const RegisterPage = () => {
           }}
           onSubmit={handleSubmit}
         >
-          <form>
+          <Form>
             <label htmlFor="name">Name</label>
             <div>
-              <input type="name" name="name" />
+              <Field type="name" name="name" />
             </div>
             <label htmlFor="email">Email</label>
             <div>
-              <input type="email" name="email" />
+              <Field type="email" name="email" />
             </div>
 
             <label htmlFor="password">password</label>
             <div>
-              <input type="password" name="password" />
+              <Field type="password" name="password" />
             </div>
 
             <button type="submit">Submit</button>
-          </form>
+          </Form>
         </Formik>
       </container>
     </section>
