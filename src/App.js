@@ -1,13 +1,16 @@
-// import { GlobalStyle } from "./common/GlobalStyle";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { authOperations } from "./redux/auth/authOperations";
-import { lazy, Suspense } from "react";
+import { useEffect, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { PublicRoute } from "./components/Routes/PublicRoute";
+import { PrivateRoute } from "./components/Routes/PrivatRoutes";
+import { AppBar } from "./components/AppBar/AppBar";
+import { GlobalStyle } from "./common/GlobalStyle";
+import { authOperations } from "./redux/auth/authOperations";
 import { StartPage } from "./pages/startpage/startpage";
 import { LoginPage } from "./pages/loginpage/loginpage";
 import { RegisterPage } from "./pages/registerpage/registerpage";
-import { Layout } from "./components/Layout/Layout";
+import { Phonebook } from "./pages/phonebook/phonebook";
+
 export const App = () => {
   const dispatch = useDispatch();
 
@@ -17,13 +20,43 @@ export const App = () => {
 
   return (
     <>
-      {/* <Layout /> */}
+      <GlobalStyle />
+
+      <AppBar />
       <Suspense fallback="">
         <Routes>
-          <Route index path="/" element={<StartPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
-
+          <Route
+            path="/"
+            element={
+              <PublicRoute>
+                <StartPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <Phonebook />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>

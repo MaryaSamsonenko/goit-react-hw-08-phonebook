@@ -1,10 +1,12 @@
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
+import { authOperations } from "../../redux/auth/authOperations";
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
   const handleSubmit = async ({ email, password }, { resetForm }) => {
     const loginObject = { email, password };
+    dispatch(authOperations.logIn(loginObject));
 
     resetForm();
   };
