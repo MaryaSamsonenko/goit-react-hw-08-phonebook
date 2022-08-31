@@ -18,36 +18,34 @@ export const RegisterPage = () => {
   };
 
   return (
-    <section>
-      <Container>
-        <h2>Registration Page</h2>
-        <Formik
-          initialValues={{
-            name: "",
-            email: "",
-            password: "",
-          }}
-          onSubmit={handleSubmit}
-        >
-          <FormContact>
-            <Label htmlFor="name">Name</Label>
-            <div>
-              <Input type="name" name="name" />
-            </div>
-            <Label htmlFor="email">Email</Label>
-            <div>
-              <Input type="email" name="email" />
-            </div>
+    <Container>
+      <h2>Registration Page</h2>
+      <Formik
+        initialValues={{
+          name: "",
+          email: "",
+          password: "",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <FormContact>
+          <Label htmlFor="name">Name</Label>
+          <div>
+            <Input type="name" name="name" />
+          </div>
+          <Label htmlFor="email">Email</Label>
+          <div>
+            <Input type="email" name="email" />
+          </div>
 
-            <Label htmlFor="password">password</Label>
-            <div>
-              <Input type="password" name="password" />
-            </div>
+          <Label htmlFor="password">password</Label>
+          <div>
+            <Input type="password" name="password" />
+          </div>
 
-            <ButtonSubmit type="submit">Submit</ButtonSubmit>
-          </FormContact>
-        </Formik>
-      </Container>
-    </section>
+          <ButtonSubmit type="submit">Submit</ButtonSubmit>
+        </FormContact>
+      </Formik>
+    </Container>
   );
 };

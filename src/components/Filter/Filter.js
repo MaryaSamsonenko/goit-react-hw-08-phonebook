@@ -8,7 +8,7 @@ export const Filter = () => {
 
   return (
     <SearchWrapper>
-      <Label htmlFor="name">Find contacts by name </Label>
+      <Label htmlFor="name">Find contacts by name</Label>
       <div>
         <Input
           type="text"

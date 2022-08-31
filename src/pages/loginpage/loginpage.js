@@ -19,31 +19,29 @@ export const LoginPage = () => {
   };
 
   return (
-    <section>
-      <Container>
-        <h2>Login Page</h2>
-        <Formik
-          initialValues={{
-            email: "",
-            password: "",
-          }}
-          onSubmit={handleSubmit}
-        >
-          <FormContact>
-            <Label htmlFor="email">Email</Label>
-            <div>
-              <Input type="email" name="email" />
-            </div>
+    <Container>
+      <h2>Login Page</h2>
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <FormContact>
+          <Label htmlFor="email">Email</Label>
+          <div>
+            <Input type="email" name="email" />
+          </div>
 
-            <Label htmlFor="password">password</Label>
-            <div>
-              <Input type="password" name="password" />
-            </div>
+          <Label htmlFor="password">password</Label>
+          <div>
+            <Input type="password" name="password" />
+          </div>
 
-            <ButtonSubmit type="submit">Submit</ButtonSubmit>
-          </FormContact>
-        </Formik>
-      </Container>
-    </section>
+          <ButtonSubmit type="submit">Submit</ButtonSubmit>
+        </FormContact>
+      </Formik>
+    </Container>
   );
 };

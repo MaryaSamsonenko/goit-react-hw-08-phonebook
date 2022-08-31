@@ -12,15 +12,16 @@ export const ContactForm = () => {
   const { data: contacts } = useGetContactsQuery();
   const [addContact] = useAddContactMutation();
 
-  const handleSubmit = async ({ name, phone }, { resetForm }) => {
-    const contactsObject = { name, phone };
-    const hasNameInContacts = contacts.find(
+  const handleSubmit = async ({ name, number }, { resetForm }) => {
+    const contactsObject = { name, number };
+    const hasNameInContacts = contacts?.find(
       (contact) => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (hasNameInContacts) {
       toast.error(`Name ${name} is already in contacts`);
       return;
     }
+
     await addContact(contactsObject);
     resetForm();
   };
@@ -29,7 +30,7 @@ export const ContactForm = () => {
     <Formik
       initialValues={{
         name: "",
-        phone: "",
+        number: "",
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
@@ -43,8 +44,8 @@ export const ContactForm = () => {
 
         <Label htmlFor="number">Number</Label>
         <div>
-          <Input type="tel" name="phone" />
-          <ErrorMessage name="phone" component="div" />
+          <Input type="tel" name="number" />
+          <ErrorMessage name="number" component="div" />
         </div>
 
         <ButtonSubmit type="submit">Add contact</ButtonSubmit>
