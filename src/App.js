@@ -35,21 +35,22 @@ export const App = () => {
             }
           />
           <Route
-            path="login"
-            element={
-              <PublicRoute>
-                <LoginPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="register"
+            path="/signup"
             element={
               <PublicRoute>
                 <RegisterPage />
               </PublicRoute>
             }
           />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+
           <Route
             path="/contacts"
             element={

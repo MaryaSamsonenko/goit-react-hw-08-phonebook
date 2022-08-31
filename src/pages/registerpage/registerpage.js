@@ -1,6 +1,13 @@
 import { useDispatch } from "react-redux";
-import { Formik, Form, Field } from "formik";
+import { Formik } from "formik";
 import { authOperations } from "../../redux/auth/authOperations";
+import { Container } from "../../components/Container/Container.styled";
+import {
+  FormContact,
+  Label,
+  Input,
+  ButtonSubmit,
+} from "../../components/ContactForm/ContactForm.styled";
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -12,7 +19,7 @@ export const RegisterPage = () => {
 
   return (
     <section>
-      <container>
+      <Container>
         <h2>Registration Page</h2>
         <Formik
           initialValues={{
@@ -22,25 +29,25 @@ export const RegisterPage = () => {
           }}
           onSubmit={handleSubmit}
         >
-          <Form>
-            <label htmlFor="name">Name</label>
+          <FormContact>
+            <Label htmlFor="name">Name</Label>
             <div>
-              <Field type="name" name="name" />
+              <Input type="name" name="name" />
             </div>
-            <label htmlFor="email">Email</label>
+            <Label htmlFor="email">Email</Label>
             <div>
-              <Field type="email" name="email" />
-            </div>
-
-            <label htmlFor="password">password</label>
-            <div>
-              <Field type="password" name="password" />
+              <Input type="email" name="email" />
             </div>
 
-            <button type="submit">Submit</button>
-          </Form>
+            <Label htmlFor="password">password</Label>
+            <div>
+              <Input type="password" name="password" />
+            </div>
+
+            <ButtonSubmit type="submit">Submit</ButtonSubmit>
+          </FormContact>
         </Formik>
-      </container>
+      </Container>
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { authSelectors } from "../../redux/auth/authSelectors";
+import { NavContactsLinkStyled } from "./ContactsNav.styled";
 
 export const ContactsNav = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
@@ -8,13 +9,9 @@ export const ContactsNav = () => {
   return (
     <nav>
       {isLoggedIn ? (
-        <NavLink to="/contacts">
-          Phonebook
-        </NavLink>
+        <NavContactsLinkStyled to="/contacts">Phonebook</NavContactsLinkStyled>
       ) : (
-        <NavLink to="/">
-          Home
-        </NavLink>
+        <NavContactsLinkStyled to="/">Home</NavContactsLinkStyled>
       )}
     </nav>
   );
