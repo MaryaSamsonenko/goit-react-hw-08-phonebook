@@ -3,14 +3,14 @@ import { useEffect, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { PublicRoute } from "./components/Routes/PublicRoute";
-import { PrivateRoute } from "./components/Routes/PrivatRoutes";
+import { PrivateRoute } from "./components/Routes/PrivateRoute";
 import { AppBar } from "./components/AppBar/AppBar";
 import { GlobalStyle } from "./common/GlobalStyle";
 import { authOperations } from "./redux/auth/authOperations";
-import { StartPage } from "./pages/startpage/startpage";
-import { LoginPage } from "./pages/loginpage/loginpage";
-import { RegisterPage } from "./pages/registerpage/registerpage";
-import { Phonebook } from "./pages/phonebook/phonebook";
+import { StartPage } from "./pages/HomePage/HomePage";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
+import { Phonebook } from "./pages/Phonebook/Phonebook";
 
 export const App = () => {
   const dispatch = useDispatch();

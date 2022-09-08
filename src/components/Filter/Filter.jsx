@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/contactsApi";
-import { SearchWrapper, Label, Input } from "../Filter/Filter.styled";
+import { SearchWrapper, Label, Input } from "./Filter.styled";
 
 export const Filter = () => {
   const dispatch = useDispatch();
