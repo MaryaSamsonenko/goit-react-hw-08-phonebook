@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import { authOperations } from "../../redux/auth/authOperations";
 import { Container } from "../../components/Container/Container.styled";
+import { registerSchema } from "../../helpers/registerSchema";
 import {
   FormContact,
   Label,
@@ -26,21 +27,25 @@ export const RegisterPage = () => {
           email: "",
           password: "",
         }}
+        validationSchema={registerSchema}
         onSubmit={handleSubmit}
       >
         <FormContact>
           <Label htmlFor="name">Name</Label>
           <div>
             <Input type="name" name="name" />
+            <ErrorMessage name="name" component="div" />
           </div>
           <Label htmlFor="email">Email</Label>
           <div>
             <Input type="email" name="email" />
+            <ErrorMessage name="email" component="div" />
           </div>
 
           <Label htmlFor="password">password</Label>
           <div>
             <Input type="password" name="password" />
+            <ErrorMessage name="password" component="div" />
           </div>
 
           <ButtonSubmit type="submit">Submit</ButtonSubmit>

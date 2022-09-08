@@ -23,7 +23,7 @@ export const App = () => {
     <>
       <GlobalStyle />
       <AppBar />
-      <Suspense fallback="">
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route
             path="/"
