@@ -1,12 +1,7 @@
 import { useDispatch } from "react-redux";
 import { authOperations } from "../../redux/auth/authOperations";
 import { Formik, ErrorMessage } from "formik";
-import {
-  FormContact,
-  Label,
-  Input,
-  ButtonSubmit,
-} from "../../components/ContactForm/ContactForm.styled";
+import { FormStyled, Label, Input, ButtonSubmit } from "../UI/Form.styled";
 import { loginSchema } from "../../helpers/loginSchema";
 
 export const LoginForm = () => {
@@ -27,7 +22,7 @@ export const LoginForm = () => {
       validationSchema={loginSchema}
       onSubmit={handleSubmit}
     >
-      <FormContact>
+      <FormStyled>
         <Label htmlFor="email">Email</Label>
         <div>
           <Input type="email" name="email" />
@@ -41,7 +36,7 @@ export const LoginForm = () => {
         </div>
 
         <ButtonSubmit type="submit">Submit</ButtonSubmit>
-      </FormContact>
+      </FormStyled>
     </Formik>
   );
 };

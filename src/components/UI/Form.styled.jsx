@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Form, Field } from "formik";
 
-export const FormContact = styled(Form)`
+export const FormStyled = styled(Form)`
   text-align: center;
   margin: 0 auto;
   margin-bottom: 24px;

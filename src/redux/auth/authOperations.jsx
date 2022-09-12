@@ -1,24 +1,12 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-import { BASE_URL } from "../../constants/baseURL";
-
-axios.defaults.baseURL = BASE_URL;
-
-const token = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = "";
-  },
-};
+import { axiosInstance, token } from "../../services/api";
 
 const register = createAsyncThunk(
   "auth/register",
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post("/users/signup", credentials);
+      const { data } = await axiosInstance.post("/users/signup", credentials);
       token.set(data.token);
       return data;
     } catch (error) {
@@ -32,7 +20,7 @@ const logIn = createAsyncThunk(
   "auth/login",
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post("/users/login", credentials);
+      const { data } = await axiosInstance.post("/users/login", credentials);
       token.set(data.token);
       return data;
     } catch (error) {
@@ -46,7 +34,7 @@ const logOut = createAsyncThunk(
   "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
-      await axios.post("/users/logout");
+      await axiosInstance.post("/users/logout");
       token.unset();
     } catch (error) {
       toast.error("Something went wrong, please try again");
@@ -67,7 +55,7 @@ const fetchCurrentUser = createAsyncThunk(
 
     token.set(persistedToken);
     try {
-      const { data } = await axios.get("/users/current");
+      const { data } = await axiosInstance.get("/users/current");
       return data;
     } catch (error) {
       toast.error("Something went wrong, please try again");

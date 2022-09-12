@@ -26,4 +26,7 @@ h2 {
   margin-bottom: 16px;
   text-align: center;
 }
+ul {
+  list-style: none;
+}
 `;

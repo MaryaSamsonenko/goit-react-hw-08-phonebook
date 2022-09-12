@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useEffect, Suspense } from "react";
+import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { PublicRoute } from "./hooks/Routes/PublicRoute";
@@ -7,7 +7,7 @@ import { PrivateRoute } from "./hooks/Routes/PrivateRoute";
 import { Layout } from "./layout/Layout";
 import { GlobalStyle } from "./style/GlobalStyle";
 import { authOperations } from "./redux/auth/authOperations";
-import { HomePage } from "./pages/HomePage/HomePage";
+import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
 import { Phonebook } from "./pages/Phonebook/Phonebook";
@@ -22,9 +22,8 @@ export const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Layout />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
+      <Routes>
+        <Route path="/" element={<Layout />}>
           <Route
             path="/"
             element={
@@ -58,9 +57,9 @@ export const App = () => {
             }
           />
           <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-        <Toaster />
-      </Suspense>
+        </Route>
+      </Routes>
+      <Toaster />
     </>
   );
 };

@@ -4,7 +4,12 @@ import {
   useGetContactsQuery,
   useAddContactMutation,
 } from "../../redux/contactsApi";
-import { FormContact, Label, Input, ButtonSubmit } from "./ContactForm.styled";
+import {
+  FormStyled,
+  Label,
+  Input,
+  ButtonSubmit,
+} from "../UI/Form.styled";
 
 import { validationSchema } from "../../helpers/validationSchema";
 
@@ -35,7 +40,8 @@ export const ContactForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <FormContact>
+      <  FormStyled
+>
         <Label htmlFor="name">Name</Label>
         <div>
           <Input type="text" name="name" />
@@ -49,7 +55,8 @@ export const ContactForm = () => {
         </div>
 
         <ButtonSubmit type="submit">Add contact</ButtonSubmit>
-      </FormContact>
+      </  FormStyled
+>
     </Formik>
   );
 };
