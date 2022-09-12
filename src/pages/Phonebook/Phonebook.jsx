@@ -5,14 +5,12 @@ import { Container } from "../../components/Container/Container.styled";
 
 export const Phonebook = () => {
   return (
-    <>
-      <Container>
-        <h1>Phonebook</h1>
-        <ContactForm />
-        <h2>Contacts</h2>
-        <Filter />
-        <ContactList />
-      </Container>
-    </>
+    <Container>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <h2>Contacts</h2>
+      <Filter />
+      <ContactList />
+    </Container>
   );
 };

@@ -22,7 +22,7 @@ const register = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      toast.error("Something went wrong, please try again");
+      toast.error("We already have a user with such email!");
       return rejectWithValue(error.message);
     }
   }
@@ -36,7 +36,7 @@ const logIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      toast.error("Something went wrong, please try again");
+      toast.error("Login or password were rejected!");
       return rejectWithValue(error.message);
     }
   }
